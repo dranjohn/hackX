@@ -24,6 +24,9 @@ public class GameResources {
 	}
 
 	public BufferedImage getImageById(String id) {
+		System.out.println(imageResources);
+		System.out.println(idtoImageNameMap);
+		System.out.println("==");
 		return imageResources.get(idtoImageNameMap.get(id));
 	}
 

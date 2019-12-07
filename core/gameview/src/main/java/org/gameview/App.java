@@ -30,7 +30,7 @@ public class App {
 	public static Game createDemoGame() {
 		MapSnippet[] arr = new MapSnippet[3];
 		// add Map snippets here:
-		MapSnippet s1 = new MapSnippet("s1", "s1", true, new float[] { 0, 510 });
+		MapSnippet s1 = new MapSnippet("s1", "s1", false, new float[] { 0, 510 });
 		MapSnippet s2 = new MapSnippet("s2", "s1", true, new float[] { 0, 0 });
 		MapSnippet s3 = new MapSnippet("s3", "s1", true, new float[] { 473, 0 });
 //		snippets.add(s1);

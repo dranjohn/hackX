@@ -25,7 +25,12 @@ public class Game {
 				snippets.add(allMapSnippets[i]);
 			}
 		}
-		return (MapSnippet[]) snippets.toArray();
+
+		MapSnippet[] arr = new MapSnippet[snippets.size()];
+		for (int i = 0; i < arr.length; i++) {
+			arr[i] = snippets.get(i);
+		}
+		return arr;
 	}
 
 	/**
