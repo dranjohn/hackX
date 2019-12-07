@@ -2,28 +2,25 @@ package org.mapsystem;
 
 public class MapSnippet {
 
-	private int id;
-	private Room[] rooms;
+	private String id;
+	private static int idNumber = 0;
 	private boolean isVisible;
+	private String name;
 	
-	/**
-	 * collection of rooms
-	 * @param id mapsnippet id
-	 * @param rooms list of rooms mapsnippet contains
-	 * @param isVisible is mapsnippet visible
-	 */
-	public MapSnippet(int id, Room[] rooms, boolean isVisible) {
-		this.id = id;
-		this.rooms = rooms;
+
+	public String getName() {
+		return name;
+	}
+
+	public MapSnippet(String name, boolean isVisible) {
+		this.id = makeId(idNumber, name);
+		idNumber++;
+		this.name = name;
 		this.isVisible = isVisible;
 	}
-	
-	public int getId() {
+
+	public String getId() {
 		return id;
-	}
-	
-	public Room[] getRooms() {
-		return rooms;
 	}
 
 	public boolean getVisibility() {
@@ -33,5 +30,10 @@ public class MapSnippet {
 	public void setVisible(boolean isVisible) {
 		this.isVisible = isVisible;
 	}
+	
+	public static String makeId(int count, String name) {
+		return  name + ":mapsnippet_" + count;
+	}
+	
 
 }
