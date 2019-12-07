@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.gameobject.GameObject;
-import org.listeners.ItemCollectionListener;
+import org.itemListeners.ItemCollectionListener;
 
 public abstract class Item extends GameObject {
 

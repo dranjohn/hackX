@@ -7,25 +7,18 @@
     <artifactId>core</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <artifactId>mapsystem</artifactId>
-  <name>mapsystem</name>
+  <artifactId>gameevents</artifactId>
+  <name>gameevents</name>
   <url>http://maven.apache.org</url>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
   <dependencies>
-  	
-  	<dependency>
-  		<groupId>bad-time-trio</groupId>
-  		<artifactId>itemsystem</artifactId>
-  		<version>0.0.1-SNAPSHOT</version>
-  	</dependency>
-  	
-  	<dependency>
-  		<groupId>bad-time-trio</groupId>
-  		<artifactId>gameobject</artifactId>
-  		<version>0.0.1-SNAPSHOT</version>
-  	</dependency>
+    <dependency>
+    	<groupId>bad-time-trio</groupId>
+    	<artifactId>gameobject</artifactId>
+    	<version>0.0.1-SNAPSHOT</version>
+    </dependency>
   
     <dependency>
       <groupId>junit</groupId>

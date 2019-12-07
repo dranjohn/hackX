@@ -1,4 +1,4 @@
-package org.mapsystem;
+package org.gameevents;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
