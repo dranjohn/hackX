@@ -16,7 +16,7 @@ public class Player {
 		this.range = range;
 	}
 
-	public float[] getLocation() {
+	public float[] getLocation(int... is) {
 		return new float[] { xPos, yPos };
 	}
 
@@ -30,6 +30,7 @@ public class Player {
 		if (item instanceof Artifact) {
 			artifactInventory.add((Artifact) item);
 		}
+		item.triggerAllCollectionListeners();
 	}
 
 	/**
