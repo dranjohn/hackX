@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.itemsystem.Artifact;
 import org.itemsystem.Item;
+import org.itemsystem.MapItem;
 import org.mapsystem.Map;
 import org.mapsystem.MapSnippet;
 
@@ -13,6 +14,7 @@ public class Player {
 	private float yPos = 0;
 	private float range;
 	private List<Artifact> artifactInventory = new LinkedList<>();
+	private List<MapItem> mapItemInventory = new LinkedList<>();
 
 	public Player(float range) {
 		this.range = range;
@@ -35,6 +37,8 @@ public class Player {
 
 				if (item instanceof Artifact) {
 					artifactInventory.add((Artifact) item);
+				}else if (item instanceof MapItem) {
+					mapItemInventory.add((MapItem) item);
 				}
 				item.triggerAllCollectionListeners();
 				break;
@@ -55,4 +59,9 @@ public class Player {
 	public Artifact[] getArtifactInventory() {
 		return (Artifact[]) artifactInventory.toArray();
 	}
+	
+	public MapItem[] getMapItemInventory() {
+		return (MapItem[]) mapItemInventory.toArray();
+	}
+
 }
