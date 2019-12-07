@@ -2,12 +2,10 @@ package org.mapsystem;
 
 import java.util.ArrayList;
 
+import org.gameobject.GameObject;
 import org.itemsystem.Item;
 
-public class MapSnippet {
-
-	private String id;
-	private static int idNumber = 0;
+public class MapSnippet extends GameObject {
 	private boolean isVisible;
 	private String name;
 	private ArrayList<Item> items;
@@ -19,10 +17,9 @@ public class MapSnippet {
 	 * @param name      Name of mapsnippet
 	 * @param isVisible Defines if mapsnippet is unlocked
 	 */
-	public MapSnippet(String name, boolean isVisible, float[] location) {
+	public MapSnippet(String id, String name, boolean isVisible, float[] location) {
+		super(id, name);
 		this.location = location;
-		this.id = makeId(idNumber, name);
-		idNumber++;
 		this.name = name;
 		this.isVisible = isVisible;
 	}
@@ -56,13 +53,6 @@ public class MapSnippet {
 	}
 
 	/**
-	 * @return Returns id of mapsnippet, count_name
-	 */
-	public String getId() {
-		return id;
-	}
-
-	/**
 	 * @return Returns if mapsnippet is visible or grayed out
 	 */
 	public boolean getVisibility() {
@@ -76,10 +66,6 @@ public class MapSnippet {
 	 */
 	public void setVisible(boolean isVisible) {
 		this.isVisible = isVisible;
-	}
-
-	private static String makeId(int count, String name) {
-		return count + "_" + name;
 	}
 
 }

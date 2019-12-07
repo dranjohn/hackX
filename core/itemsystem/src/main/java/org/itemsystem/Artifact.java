@@ -9,8 +9,8 @@ public abstract class Artifact extends Item {
 
 	private Set<Artifact> requiredArtifacts = new HashSet<>();
 
-	public Artifact(String name, float[] location, Description description) {
-		super(name, location, description);
+	public Artifact(String id, String name, float[] location, Description description) {
+		super(id, name, location, description);
 	}
 
 	public void setRequiredArtifacts(Artifact... required) {

@@ -20,6 +20,12 @@
   		<artifactId>itemsystem</artifactId>
   		<version>0.0.1-SNAPSHOT</version>
   	</dependency>
+  	
+  	<dependency>
+  		<groupId>bad-time-trio</groupId>
+  		<artifactId>gameobject</artifactId>
+  		<version>0.0.1-SNAPSHOT</version>
+  	</dependency>
   
     <dependency>
       <groupId>junit</groupId>

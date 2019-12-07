@@ -3,23 +3,19 @@ package org.itemsystem;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.gameobject.GameObject;
 import org.listeners.ItemCollectionListener;
 
-public abstract class Item {
+public abstract class Item extends GameObject {
 
-	private static int idNumber = 0;
-	private String name;
-	private String id;
 	private float[] location;
 	private Description description;
 	private List<ItemCollectionListener> actions = new ArrayList<>();
 
-	public Item(String name, float[] location, Description description) {
-		this.name = name;
+	public Item(String id, String name, float[] location, Description description) {
+		super(id, name);
 		this.location = location;
 		this.description = description;
-		this.id = makeId(idNumber, name);
-		idNumber++;
 	}
 
 	/**
@@ -39,14 +35,6 @@ public abstract class Item {
 		for (ItemCollectionListener listener : actions) {
 			listener.itemCollected(this);
 		}
-	}
-
-	public String getId() {
-		return id;
-	}
-
-	public String getName() {
-		return name;
 	}
 
 	/**

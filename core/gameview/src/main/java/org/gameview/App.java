@@ -21,8 +21,8 @@ public class App {
 		// Load game
 		ArrayList<MapSnippet> snippets = new ArrayList<>();
 
-		MapSnippet s1 = new MapSnippet("Altes Ägypten", false);
-		new MapItem("Altes Ägypten - Infotafel", new float[] { 2, 2 }, new Description("5000", "alt")) {
+		MapSnippet s1 = new MapSnippet("snippet1", "Altes Ägypten", false, new float[] { 1, 2 });
+		new MapItem("mapItem1", "Altes Ägypten - Infotafel", new float[] { 2, 2 }, new Description("5000", "alt")) {
 			@Override
 			public void unlockMapSnippets() {
 				s1.setVisible(true);
@@ -30,7 +30,7 @@ public class App {
 		};
 
 		snippets.add(s1);
-		Map map = new Map((MapSnippet[]) snippets.toArray());
+		Map map = new Map((MapSnippet[]) snippets.toArray(), 700, 350);
 		Game game = new Game(map, new Player(3f));
 
 		// Loading resources
