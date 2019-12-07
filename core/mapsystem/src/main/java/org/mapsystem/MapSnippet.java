@@ -24,6 +24,10 @@ public class MapSnippet extends GameObject {
 		this.isVisible = isVisible;
 	}
 
+	public float[] getLocation() {
+		return new float[] { location[0], location[1] };
+	}
+
 	/**
 	 * @return Returns Mapsnippet name
 	 */
