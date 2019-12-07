@@ -1,18 +1,22 @@
 package org.gameevents;
 
-
-// Unfinished, not as planned, will be done
-
-
 public class Dialogue {
 
-	private String[] text;
+	private TextNode currentNode;
 	
-	public Dialogue(String[] text) {
-		this.text = text;
+	public Dialogue(TextNode startNode) {
+		currentNode = startNode;
 	}
 	
-	public String[] getDialogue() {
-		return text;
+	public String getText() {
+		return currentNode.getText();
+	}
+	
+	public String[] getAnswers() {
+		return currentNode.getAnswers();
+	}	
+	
+	public void chosenAnswer(int choice) {
+		currentNode = currentNode.chosenAnswer(choice);
 	}
 }
