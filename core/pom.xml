@@ -37,9 +37,7 @@
  
   </dependencyManagement>
   
-  <modules>
-    <module>itemsystem</module>
-    <module>mapsystem</module>
+  <modules>	
     <module>game</module>
     <module>gameview</module>
     <module>gameobject</module>
