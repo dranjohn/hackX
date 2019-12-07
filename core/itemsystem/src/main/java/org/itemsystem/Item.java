@@ -19,7 +19,7 @@ public abstract class Item {
 	public String getId() {
 		return id;
 	}
-	
+
 	public String getName() {
 		return name;
 	}
@@ -34,9 +34,9 @@ public abstract class Item {
 	public Description getDescription() {
 		return description;
 	}
-	
+
 	public static String makeId(int count, String name) {
-		return  name + ":artifact_" + count;
+		return name + "_" + count;
 	}
-	
+
 }
