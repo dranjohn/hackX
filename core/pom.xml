@@ -39,5 +39,6 @@
   
   <modules>
     <module>itemsystem</module>
+    <module>mapsystem</module>
   </modules>
 </project>
