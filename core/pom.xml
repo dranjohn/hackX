@@ -41,5 +41,6 @@
     <module>itemsystem</module>
     <module>mapsystem</module>
     <module>game</module>
+    <module>gameview</module>
   </modules>
 </project>
