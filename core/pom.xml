@@ -42,5 +42,6 @@
     <module>mapsystem</module>
     <module>game</module>
     <module>gameview</module>
+    <module>gameobject</module>
   </modules>
 </project>
