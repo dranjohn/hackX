@@ -12,11 +12,10 @@ public class Map {
 		this.mapSnippets = mapSnippets;
 	}
 
+	/**
+	 * @return Returns Array of all mapsnippets
+	 */
 	public MapSnippet[] getMapSnippets() {
 		return mapSnippets;
-	}
-
-	public void setMapSnippets(MapSnippet[] mapSnippets) {
-		this.mapSnippets = mapSnippets;
 	}
 }

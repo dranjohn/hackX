@@ -12,9 +12,9 @@ public class MapSnippet {
 	private ArrayList<Item> items;
 
 	/**
-	 * part of map, contains items
-	 * @param name			name of map snippet
-	 * @param isVisible		defines if map is unlocked
+	 * 						Part of Map, Contains Item list, ID System with id_name
+	 * @param name			Name of mapsnippet
+	 * @param isVisible		Defines if mapsnippet is unlocked
 	 */
 	public MapSnippet(String name, boolean isVisible ) {
 		this.id = makeId(idNumber, name);
@@ -23,36 +23,53 @@ public class MapSnippet {
 		this.isVisible = isVisible;
 	}	
 	
+	/**
+	 * @return Returns Mapsnippet name
+	 */
 	public String getName() {
 		return name;
 	}
 
+	/**
+	 * @param item Exhibit in Museum
+	 * @return Returns ArrayList of Items in Mapsnippet
+	 */
 	public ArrayList<Item> getItems() {
 		return items;
 	}
-
-	public void setItems(ArrayList<Item> items) {
-		this.items = items;
-	}
 	
+	/**
+	 * Adds single item to Item ArrayList
+	 * @param item Exhibit in Museum
+	 */
 	public void addItem(Item item) {
 		items.add(item);
 	}
 
+	/**
+	 * @return Returns id of mapsnippet, count_name
+	 */
 	public String getId() {
 		return id;
 	}
 
+	/**
+	 * @return Returns if mapsnippet is visible or grayed out
+	 */
 	public boolean getVisibility() {
 		return isVisible;
 	}
 	
+	/**
+	 * Sets the visibility of mapsnippet
+	 * @param isVisible boolean, defines whether mapsnippet is visible or grayed out
+	 */
 	public void setVisible(boolean isVisible) {
 		this.isVisible = isVisible;
 	}
 	
-	public static String makeId(int count, String name) {
-		return  name + "_" + count;
+	private static String makeId(int count, String name) {
+		return  count + "_" + name;
 	}
 	
 

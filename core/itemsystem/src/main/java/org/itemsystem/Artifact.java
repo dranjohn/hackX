@@ -8,13 +8,13 @@ public abstract class Artifact extends Item {
 
 	private HashSet<Artifact> requiredArtifacts;
 
-	public Artifact(String name, Artifact... required) {
-		super(name);
+	public Artifact(String name, float[] location, Description description, Artifact... required) {
+		super(name, location, description);
 		this.requiredArtifacts = new HashSet<Artifact>(Arrays.asList(required));
 	}
 
-	public Artifact(String name) {
-		this(name, new Artifact[] {});
+	public Artifact(String name, float[] location, Description description) {
+		this(name, location, description, new Artifact[] {});
 	}
 
 	/**
