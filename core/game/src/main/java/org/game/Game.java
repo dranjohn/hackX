@@ -1,5 +1,6 @@
 package org.game;
 
+import java.util.Arrays;
 import java.util.LinkedList;
 
 import org.itemsystem.Item;
@@ -11,8 +12,9 @@ public class Game {
 	private Player player;
 	private Map map;
 
-	public Game(Map map) {
+	public Game(Map map, Player player) {
 		this.map = map;
+		this.player = player;
 	}
 
 	public MapSnippet[] getVisibleMapSnippets() {
@@ -39,7 +41,7 @@ public class Game {
 				items.addAll(s.getItems());
 			}
 		}
-
+		items.addAll(Arrays.asList(player.getMapItemInventory()));
 		return (Item[]) items.toArray();
 	}
 

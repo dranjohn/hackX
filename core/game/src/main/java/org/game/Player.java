@@ -3,6 +3,7 @@ package org.game;
 import java.util.LinkedList;
 import java.util.List;
 
+import org.gamestats.Stats;
 import org.itemsystem.Artifact;
 import org.itemsystem.Item;
 import org.itemsystem.MapItem;
@@ -15,9 +16,15 @@ public class Player {
 	private float range;
 	private List<Artifact> artifactInventory = new LinkedList<>();
 	private List<MapItem> mapItemInventory = new LinkedList<>();
+	private Stats stats;
 
 	public Player(float range) {
 		this.range = range;
+		this.stats = new Stats();
+	}
+
+	public Stats getStats() {
+		return stats;
 	}
 
 	public float[] getLocation(int... is) {
@@ -63,5 +70,4 @@ public class Player {
 	public MapItem[] getMapItemInventory() {
 		return (MapItem[]) mapItemInventory.toArray();
 	}
-
 }
