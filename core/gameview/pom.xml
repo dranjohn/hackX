@@ -14,10 +14,18 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
   <dependencies>
+  
+  	 <dependency>
+  		<groupId>bad-time-trio</groupId>
+  		<artifactId>game</artifactId>
+  		<version>0.0.1-SNAPSHOT</version>
+  	</dependency>
+  	
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <scope>test</scope>
     </dependency>
+    
   </dependencies>
 </project>
