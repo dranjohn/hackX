@@ -3,6 +3,8 @@ package org.itemsystem;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.listeners.ItemCollectionListener;
+
 public abstract class Item {
 
 	private static int idNumber = 0;

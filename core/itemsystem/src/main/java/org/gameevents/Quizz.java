@@ -1,4 +1,4 @@
-package org.itemsystem;
+package org.gameevents;
 
 public class Quizz {
 
