@@ -53,6 +53,8 @@ public class MainWindow extends JFrame {
 	}
 
 	public Point convertToScreen(float[] point, float width, float height) {
+		int x = (int) ((getWidth() / width) * point[0]);
+		int y = (int) ((getHeight() / height) * point[1]);
 		return new Point((int) point[0], (int) point[1]);
 	}
 

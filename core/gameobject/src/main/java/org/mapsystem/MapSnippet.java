@@ -17,11 +17,11 @@ public class MapSnippet extends GameObject {
 	 * @param name      Name of mapsnippet
 	 * @param isVisible Defines if mapsnippet is unlocked
 	 */
-	public MapSnippet(String id, String name, boolean isVisible, float[] location) {
+	public MapSnippet(String id, String name, float[] location) {
 		super(id, name);
 		this.location = location;
 		this.name = name;
-		this.isVisible = isVisible;
+		this.isVisible = false;
 	}
 
 	public float[] getLocation() {
