@@ -15,6 +15,8 @@ public class Map {
 	 */
 	public Map(MapSnippet[] mapSnippets, float width, float height) {
 		this.mapSnippets = mapSnippets;
+		this.height = height;
+		this.width = width;
 	}
 
 	/**
