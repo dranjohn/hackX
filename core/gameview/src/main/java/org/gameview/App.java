@@ -6,6 +6,7 @@ import java.util.HashMap;
 import javax.swing.JFrame;
 
 import org.game.Game;
+import org.game.Player;
 import org.itemsystem.Description;
 import org.itemsystem.MapItem;
 import org.mapsystem.Map;
@@ -30,7 +31,7 @@ public class App {
 
 		snippets.add(s1);
 		Map map = new Map((MapSnippet[]) snippets.toArray());
-		Game game = new Game(map);
+		Game game = new Game(map, new Player(3f));
 
 		// Loading resources
 		HashMap<String, String> idImageNameMap = new HashMap<>();

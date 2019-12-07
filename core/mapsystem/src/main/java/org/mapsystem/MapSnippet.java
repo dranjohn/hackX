@@ -11,6 +11,7 @@ public class MapSnippet {
 	private boolean isVisible;
 	private String name;
 	private ArrayList<Item> items;
+	private float[] location;
 
 	/**
 	 * Part of Map, Contains Item list, ID System with id_name
@@ -18,7 +19,8 @@ public class MapSnippet {
 	 * @param name      Name of mapsnippet
 	 * @param isVisible Defines if mapsnippet is unlocked
 	 */
-	public MapSnippet(String name, boolean isVisible) {
+	public MapSnippet(String name, boolean isVisible, float[] location) {
+		this.location = location;
 		this.id = makeId(idNumber, name);
 		idNumber++;
 		this.name = name;
