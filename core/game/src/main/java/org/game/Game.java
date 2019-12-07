@@ -2,7 +2,6 @@ package org.game;
 
 import java.util.LinkedList;
 
-import org.itemsystem.Artifact;
 import org.itemsystem.Item;
 import org.itemsystem.MapItem;
 import org.mapsystem.Map;
@@ -37,19 +36,8 @@ public class Game {
 		MapSnippet[] allMapSnippets = map.getMapSnippets();
 		for (MapSnippet s : allMapSnippets) {
 			if (s.getVisibility()) {
-				for (Item i : s.getItems()) {
-					if (i instanceof Artifact) {
-						Artifact a = (Artifact) i;
-						if (a.isUnlocked(player.getArtifactInventory())) {
-							items.add(a);
-						}
-					} else {
-						items.add(i);
-					}
-
-				}
+				items.addAll(s.getItems());
 			}
-
 		}
 
 		return (Item[]) items.toArray();

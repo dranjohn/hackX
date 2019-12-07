@@ -3,18 +3,18 @@ package org.itemsystem;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.Set;
 
 public abstract class Artifact extends Item {
 
-	private HashSet<Artifact> requiredArtifacts;
-
-	public Artifact(String name, float[] location, Description description, Artifact... required) {
-		super(name, location, description);
-		this.requiredArtifacts = new HashSet<Artifact>(Arrays.asList(required));
-	}
+	private Set<Artifact> requiredArtifacts = new HashSet<>();
 
 	public Artifact(String name, float[] location, Description description) {
-		this(name, location, description, new Artifact[] {});
+		super(name, location, description);
+	}
+
+	public void setRequiredArtifacts(Artifact... required) {
+		this.requiredArtifacts = new HashSet<Artifact>(Arrays.asList(required));
 	}
 
 	/**

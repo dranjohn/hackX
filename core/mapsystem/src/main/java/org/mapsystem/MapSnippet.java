@@ -1,6 +1,7 @@
 package org.mapsystem;
 
 import java.util.ArrayList;
+
 import org.itemsystem.Item;
 
 public class MapSnippet {
@@ -12,17 +13,18 @@ public class MapSnippet {
 	private ArrayList<Item> items;
 
 	/**
-	 * 						Part of Map, Contains Item list, ID System with id_name
-	 * @param name			Name of mapsnippet
-	 * @param isVisible		Defines if mapsnippet is unlocked
+	 * Part of Map, Contains Item list, ID System with id_name
+	 * 
+	 * @param name      Name of mapsnippet
+	 * @param isVisible Defines if mapsnippet is unlocked
 	 */
-	public MapSnippet(String name, boolean isVisible ) {
+	public MapSnippet(String name, boolean isVisible) {
 		this.id = makeId(idNumber, name);
 		idNumber++;
 		this.name = name;
 		this.isVisible = isVisible;
-	}	
-	
+	}
+
 	/**
 	 * @return Returns Mapsnippet name
 	 */
@@ -37,13 +39,18 @@ public class MapSnippet {
 	public ArrayList<Item> getItems() {
 		return items;
 	}
-	
+
 	/**
 	 * Adds single item to Item ArrayList
+	 * 
 	 * @param item Exhibit in Museum
 	 */
 	public void addItem(Item item) {
 		items.add(item);
+	}
+
+	public void removeItem(Item item) {
+		items.remove(item);
 	}
 
 	/**
@@ -59,18 +66,18 @@ public class MapSnippet {
 	public boolean getVisibility() {
 		return isVisible;
 	}
-	
+
 	/**
 	 * Sets the visibility of mapsnippet
+	 * 
 	 * @param isVisible boolean, defines whether mapsnippet is visible or grayed out
 	 */
 	public void setVisible(boolean isVisible) {
 		this.isVisible = isVisible;
 	}
-	
+
 	private static String makeId(int count, String name) {
-		return  count + "_" + name;
+		return count + "_" + name;
 	}
-	
 
 }

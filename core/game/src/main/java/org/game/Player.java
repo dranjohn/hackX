@@ -5,6 +5,8 @@ import java.util.List;
 
 import org.itemsystem.Artifact;
 import org.itemsystem.Item;
+import org.mapsystem.Map;
+import org.mapsystem.MapSnippet;
 
 public class Player {
 	private float xPos = 0;
@@ -26,11 +28,19 @@ public class Player {
 	 * 
 	 * @param item
 	 */
-	public void collect(Item item) {
-		if (item instanceof Artifact) {
-			artifactInventory.add((Artifact) item);
+	public void collect(Item item, Map map) {
+		for (MapSnippet snippet : map.getMapSnippets()) {
+			if (snippet.getItems().contains(item)) {
+				snippet.removeItem(item);
+
+				if (item instanceof Artifact) {
+					artifactInventory.add((Artifact) item);
+				}
+				item.triggerAllCollectionListeners();
+				break;
+			}
 		}
-		item.triggerAllCollectionListeners();
+
 	}
 
 	/**
