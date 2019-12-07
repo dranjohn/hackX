@@ -43,5 +43,6 @@
     <module>game</module>
     <module>gameview</module>
     <module>gameobject</module>
+    <module>gameevents</module>
   </modules>
 </project>
