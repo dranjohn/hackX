@@ -1,6 +1,6 @@
 package org.mapsystem;
 
-import org.itemsystem;
+import org.itemsystem.Item;
 
 public class Room {
 
@@ -9,16 +9,17 @@ public class Room {
 	private float[] location;
 	private boolean isDiscovered;
 	private boolean isVisible;
-	
-	/** 
+
+	/**
 	 * single room/hallway of museum
-	 * @param id room id
-	 * @param items list of items room contains
+	 * 
+	 * @param id       room id
+	 * @param items    list of items room contains
 	 * @param location room location as float array
 	 */
-	public Room (int id, Item[] items, float[] location) {
+	public Room(int id, Item[] items, float[] location) {
 		this.id = id;
-		this.items =  items;
+		this.items = items;
 		this.location = location;
 	}
 
