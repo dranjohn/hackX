@@ -3,12 +3,19 @@ package org.gameevents;
 public class Dialogue {
 
 	private TextNode currentNode;
+	private boolean isFinished = false;
 
 	public Dialogue(TextNode startNode) {
 		currentNode = startNode;
 	}
 
 	public String getText() {
+		
+		// Exception for 1 text only
+		if (currentNode.getAnswers().length == 0) {
+			isFinished = true;
+		}
+		
 		return currentNode.getText();
 	}
 
@@ -25,6 +32,17 @@ public class Dialogue {
 	}
 
 	public void chosenAnswer(int choice) {
-		currentNode = currentNode.chosenAnswer(choice);
+		
+		TextNode nextNode = currentNode.chosenAnswer(choice);
+		
+		if (nextNode.getAnswers().length == 0 || nextNode.getChildrenAmount() == 0) {
+			isFinished = true;
+		}
+
+		currentNode = nextNode;
+	}
+	
+	public boolean isFinished() {
+		return isFinished;
 	}
 }

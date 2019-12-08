@@ -22,6 +22,10 @@ public class TextNode extends GameObject {
 	public String[] getAnswers() {
 		return answers;
 	}
+	
+	public int getChildrenAmount() {
+		return children.length;
+	}
 
 	public TextNode chosenAnswer(int choice) {
 		return children[choice];
