@@ -30,6 +30,11 @@ public class Player {
 	public float[] getLocation() {
 		return new float[] { xPos, yPos };
 	}
+	
+	public void setLocation(float[] location) {
+		xPos = location[0];
+		yPos = location[1];
+	}
 
 	/**
 	 * Collects an item and triggers its corresponding actions which for example can
