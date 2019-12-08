@@ -25,4 +25,8 @@ public class Map {
 	public MapSnippet[] getMapSnippets() {
 		return mapSnippets;
 	}
+	
+	public PointF getMapSize() {
+		return size;
+	}
 }

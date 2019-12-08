@@ -1,6 +1,5 @@
 package org.game;
 
-import java.util.Arrays;
 import java.util.LinkedList;
 
 import org.gameobject.PointF;

@@ -1,5 +1,0 @@
--Text
--Answer Array
--Text Array
-	-Text
-	-...

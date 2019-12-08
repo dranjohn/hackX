@@ -7,7 +7,6 @@ import java.awt.event.KeyListener;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import javax.swing.JFrame;
@@ -15,9 +14,7 @@ import javax.swing.JFrame;
 import org.game.Game;
 import org.game.Player;
 import org.gameobject.PointF;
-import org.itemsystem.Artifact;
 import org.itemsystem.Item;
-import org.itemsystem.MapItem;
 import org.mapsystem.MapSnippet;
 
 public class MainWindow extends JFrame implements KeyListener {

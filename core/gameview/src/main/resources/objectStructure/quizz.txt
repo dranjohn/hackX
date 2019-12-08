@@ -1,5 +1,0 @@
--Question
--Answer Array
--boolean Array
--Question
--...
