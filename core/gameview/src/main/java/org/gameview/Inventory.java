@@ -1,6 +1,5 @@
 package org.gameview;
 
-import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.FlowLayout;
 import java.awt.LayoutManager;
@@ -9,10 +8,8 @@ import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
-import javax.swing.LayoutStyle;
 
 import org.game.Player;
 import org.itemsystem.Artifact;
@@ -34,7 +31,8 @@ public class Inventory extends JFrame {
 		this.add(descriptionView);
 		this.descriptionView.setText("Inventory information");
 		this.updateInventory();
-		this.setSize(150, 700);
+		this.setSize(400, 700);
+		this.setTitle("Inventory");
 	}
 	
 	public void updateInventory() {

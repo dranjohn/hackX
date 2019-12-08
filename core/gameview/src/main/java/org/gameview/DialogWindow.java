@@ -23,6 +23,7 @@ public class DialogWindow extends JFrame {
 		this.add(inputLabel);
 	
 		inputLabel.setVisible(true);
+		this.setTitle("Dialog");
 	}
 	
 	public void setDialogue(Dialogue dialogue) {
@@ -38,7 +39,6 @@ public class DialogWindow extends JFrame {
 		}
 		inputLabel.setText(dialogue.getText());
 		if (!dialogue.isFinished()) {
-			System.out.println(dialogue + " " + dialogue.getText());
 			String[] answersText = dialogue.getAnswers();
 			this.answers = new JButton[answersText.length];
 			for (int i = 0; i < answers.length; i++) {

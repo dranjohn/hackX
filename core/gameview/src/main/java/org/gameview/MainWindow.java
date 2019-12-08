@@ -32,6 +32,7 @@ public class MainWindow extends JFrame implements KeyListener {
 	private Inventory inventory;
 	private List<TexturePanel> textureLayers = new ArrayList<>();
 	private PointF moveDelta = new PointF(5f, 5f);
+	private String title = "Komisches Spiel";
 
 	public MainWindow(GameResources resources, Game game) {
 		this.resources = resources;
@@ -39,7 +40,7 @@ public class MainWindow extends JFrame implements KeyListener {
 		this.inventory = new Inventory(resources, game.getPlayer());
 		inventory.setLocation(getX() + 900 + 20, getY());
 		this.addKeyListener(this);
-		
+		this.setTitle(title);
 	}
 
 	@Override
