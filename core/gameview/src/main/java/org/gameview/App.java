@@ -41,8 +41,6 @@ public class App {
 		d.setSize(300, 700);
 		d.setDialogue(dialogue);
 		d.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		d.setVisible(true);
-		
 		
 		// Creating main frame
 		MainWindow frame = new MainWindow(createTextures(), createDemoGame());
