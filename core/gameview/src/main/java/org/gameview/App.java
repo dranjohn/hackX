@@ -47,6 +47,7 @@ public class App {
 		// ===============
 
 		Player p = new Player(3);
+		p.setLocation(new float[] {200, 300});
 		
 		Map map = new Map(arr, xSize, ySize);
 		Game game = new Game(map, p);
