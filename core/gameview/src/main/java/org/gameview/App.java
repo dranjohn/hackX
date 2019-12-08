@@ -46,7 +46,7 @@ public class App {
 		MainWindow frame = new MainWindow(createTextures(), createDemoGame());
 		frame.setSize(size.x, size.y);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		// frame.setVisible(true);
+		frame.setVisible(true);
 		
 
 	}
