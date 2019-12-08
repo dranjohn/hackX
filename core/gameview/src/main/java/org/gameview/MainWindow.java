@@ -4,6 +4,7 @@ import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.List;
@@ -25,6 +26,9 @@ public class MainWindow extends JFrame implements KeyListener {
 	 */
 	private static final long serialVersionUID = 1L;
 
+	private final int BUFFERS = 2;
+	private BufferStrategy bufferStrategy;
+	
 	private GameResources resources;
 	private Game game;
 	private List<TexturePanel> textureLayers = new ArrayList<>();
@@ -39,16 +43,16 @@ public class MainWindow extends JFrame implements KeyListener {
 
 	@Override
 	public void paint(Graphics g) {
-		super.paint(g);
-		renderGame(g);
-		
-		
-		
-	}
-	
-	@Override
-	public void update(Graphics g) {
-		paint(g);
+		if (bufferStrategy == null) {
+            this.createBufferStrategy(BUFFERS);
+            this.bufferStrategy = this.getBufferStrategy();
+        }
+        for (int i = 0; i < BUFFERS; i++) {
+            Graphics gBuffered = (Graphics) bufferStrategy.getDrawGraphics();
+    		renderGame(gBuffered);
+            bufferStrategy.show();
+            gBuffered.dispose();
+        }
 	}
 	
 	
