@@ -9,6 +9,7 @@ import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.print.attribute.standard.ReferenceUriSchemesSupported;
 import javax.swing.JFrame;
 
 import org.game.Game;
@@ -29,12 +30,14 @@ public class MainWindow extends JFrame implements KeyListener {
 	
 	private GameResources resources;
 	private Game game;
+	private Inventory inventory;
 	private List<TexturePanel> textureLayers = new ArrayList<>();
 	private PointF moveDelta = new PointF(5f, 5f);
 
 	public MainWindow(GameResources resources, Game game) {
 		this.resources = resources;
 		this.game = game;
+		this.inventory = new Inventory(resources, game.getPlayer());
 		this.addKeyListener(this);
 		
 	}
@@ -134,6 +137,11 @@ public class MainWindow extends JFrame implements KeyListener {
 			PointF pos = player.getLocation();
 			pos.setX(pos.getX() + moveDelta.getX());
 			repaint();
+		}
+		
+		if (e.getKeyChar() == 'e') {
+			inventory.updateInventory();
+			inventory.setVisible(true);
 		}
 		
 		if (e.getKeyCode() == KeyEvent.VK_SPACE) {
