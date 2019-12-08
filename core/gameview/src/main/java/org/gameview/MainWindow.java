@@ -9,7 +9,6 @@ import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.print.attribute.standard.ReferenceUriSchemesSupported;
 import javax.swing.JFrame;
 
 import org.game.Game;
