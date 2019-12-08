@@ -4,15 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.gameobject.GameObject;
+import org.gameobject.PointF;
 import org.itemListeners.ItemCollectionListener;
 
 public abstract class Item extends GameObject {
 
-	private float[] location;
+	private PointF location;
 	private Description description;
 	private List<ItemCollectionListener> actions = new ArrayList<>();
 
-	public Item(String id, String name, float[] location, Description description) {
+	public Item(String id, String name, PointF location, Description description) {
 		super(id, name);
 		this.location = location;
 		this.description = description;
@@ -40,7 +41,7 @@ public abstract class Item extends GameObject {
 	/**
 	 * @return the location of the collectable item on the map
 	 */
-	public float[] getLocation() {
+	public PointF getLocation() {
 		return location;
 	}
 

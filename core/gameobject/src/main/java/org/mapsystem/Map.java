@@ -1,10 +1,11 @@
 package org.mapsystem;
 
+import org.gameobject.PointF;
+
 public class Map {
 
 	private MapSnippet[] mapSnippets;
-	float width;
-	float height;
+	private PointF size;
 
 	/**
 	 * complete map
@@ -13,10 +14,9 @@ public class Map {
 	 * @param width       the width of the map in meters
 	 * @param height      the height of the map in meters
 	 */
-	public Map(MapSnippet[] mapSnippets, float width, float height) {
+	public Map(MapSnippet[] mapSnippets, PointF size) {
 		this.mapSnippets = mapSnippets;
-		this.height = height;
-		this.width = width;
+		this.size = size;
 	}
 
 	/**

@@ -1,5 +1,7 @@
 package org.itemsystem;
 
+import org.gameobject.PointF;
+
 public abstract class MapItem extends Item {
 
 	/**
@@ -9,7 +11,7 @@ public abstract class MapItem extends Item {
 	 * @param location
 	 * @param description
 	 */
-	public MapItem(String id, String name, float[] location, Description description) {
+	public MapItem(String id, String name, PointF location, Description description) {
 		super(id, name, location, description);
 	}
 

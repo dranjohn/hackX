@@ -1,5 +1,6 @@
 package org.gameview;
 
+import java.awt.Point;
 import java.util.HashMap;
  
 
@@ -7,6 +8,7 @@ import javax.swing.JFrame;
 
 import org.game.Game;
 import org.game.Player;
+import org.gameobject.PointF;
 import org.mapsystem.Map;
 import org.mapsystem.MapSnippet; 
  
@@ -16,14 +18,13 @@ import org.mapsystem.MapSnippet;
  */
 public class App {
 	
-	private static int xSize = 900;
-	private static int ySize = 700;
+	private static Point size = new Point(900, 700);
 	
 	public static void main(String[] args) {
  
 		// Creating main frame
 		MainWindow frame = new MainWindow(createTextures(), createDemoGame());
-		frame.setSize(xSize, ySize);
+		frame.setSize(size.x, size.y);
 		frame.setVisible(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setVisible(true);
@@ -34,9 +35,9 @@ public class App {
 		MapSnippet[] arr = new MapSnippet[3];
 		// add Map snippets here:
 
-		MapSnippet s1 = new MapSnippet("s1", "s1", new float[] { 0, 510 });
-		MapSnippet s2 = new MapSnippet("s2", "s1", new float[] { 0, 0 });
-		MapSnippet s3 = new MapSnippet("s3", "s1", new float[] { 473, 0 });
+		MapSnippet s1 = new MapSnippet("s1", "s1", new PointF(0, 510 ));
+		MapSnippet s2 = new MapSnippet("s2", "s1", new PointF(0, 0 ));
+		MapSnippet s3 = new MapSnippet("s3", "s1", new PointF(473, 0 ));
 		s1.setVisible(true);
 
 		arr[0] = s1;
@@ -47,9 +48,9 @@ public class App {
 		// ===============
 
 		Player p = new Player(3);
-		p.setLocation(new float[] {200, 300});
+		p.setLocation(new PointF(200, 300));
 		
-		Map map = new Map(arr, xSize, ySize);
+		Map map = new Map(arr, new PointF(size.x, size.y));
 		Game game = new Game(map, p);
 		return game;
 	}

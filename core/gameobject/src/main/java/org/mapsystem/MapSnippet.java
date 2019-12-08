@@ -3,13 +3,14 @@ package org.mapsystem;
 import java.util.ArrayList;
 
 import org.gameobject.GameObject;
+import org.gameobject.PointF;
 import org.itemsystem.Item;
 
 public class MapSnippet extends GameObject {
 	private boolean isVisible;
 	private String name;
 	private ArrayList<Item> items;
-	private float[] location;
+	private PointF location;
 
 	/**
 	 * Part of Map, Contains Item list, ID System with id_name
@@ -17,15 +18,15 @@ public class MapSnippet extends GameObject {
 	 * @param name      Name of mapsnippet
 	 * @param isVisible Defines if mapsnippet is unlocked
 	 */
-	public MapSnippet(String id, String name, float[] location) {
+	public MapSnippet(String id, String name, PointF location) {
 		super(id, name);
 		this.location = location;
 		this.name = name;
 		this.isVisible = false;
 	}
 
-	public float[] getLocation() {
-		return new float[] { location[0], location[1] };
+	public PointF getLocation() {
+		return location;
 	}
 
 	/**

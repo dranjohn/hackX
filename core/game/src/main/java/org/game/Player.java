@@ -3,6 +3,7 @@ package org.game;
 import java.util.LinkedList;
 import java.util.List;
 
+import org.gameobject.PointF;
 import org.gamestats.Stats;
 import org.itemsystem.Artifact;
 import org.itemsystem.Item;
@@ -11,8 +12,7 @@ import org.mapsystem.Map;
 import org.mapsystem.MapSnippet;
 
 public class Player {
-	private float xPos = 0;
-	private float yPos = 0;
+	private PointF location;
 	private float range;
 	private List<Artifact> artifactInventory = new LinkedList<>();
 	private List<MapItem> mapItemInventory = new LinkedList<>();
@@ -27,13 +27,12 @@ public class Player {
 		return stats;
 	}
 
-	public float[] getLocation() {
-		return new float[] { xPos, yPos };
+	public PointF getLocation() {
+		return location;
 	}
 	
-	public void setLocation(float[] location) {
-		xPos = location[0];
-		yPos = location[1];
+	public void setLocation(PointF location) {
+		this.location = location;
 	}
 
 	/**

@@ -3,6 +3,7 @@ package org.game;
 import java.util.Arrays;
 import java.util.LinkedList;
 
+import org.gameobject.PointF;
 import org.itemsystem.Item;
 import org.itemsystem.MapItem;
 import org.mapsystem.Map;
@@ -51,13 +52,13 @@ public class Game {
 	}
 
 	public Item[] getItemsInRangeOfPlayer() {
-		float[] locPlayer = player.getLocation();
+		PointF locPlayer = player.getLocation();
 		LinkedList<Item> itemsInRange = new LinkedList<>();
 		MapSnippet[] allMapSnippets = map.getMapSnippets();
 		for (MapSnippet s : allMapSnippets) {
 			for (Item i : s.getItems()) {
-				float[] locItem = i.getLocation();
-				if (Math.hypot(locItem[0] - locPlayer[0], locItem[1] - locPlayer[1]) < player.getRange()) {
+				PointF locItem = i.getLocation();
+				if (Math.hypot(locItem.getX() - locPlayer.getY(), locItem.getX()- locPlayer.getY()) < player.getRange()) {
 					itemsInRange.add(i);
 				}
 			}

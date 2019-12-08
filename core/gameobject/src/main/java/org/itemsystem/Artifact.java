@@ -5,11 +5,13 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.gameobject.PointF;
+
 public abstract class Artifact extends Item {
 
 	private Set<Artifact> requiredArtifacts = new HashSet<>();
 
-	public Artifact(String id, String name, float[] location, Description description) {
+	public Artifact(String id, String name, PointF location, Description description) {
 		super(id, name, location, description);
 	}
 

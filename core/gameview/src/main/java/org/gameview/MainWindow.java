@@ -9,6 +9,7 @@ import java.util.List;
 import javax.swing.JFrame;
 
 import org.game.Game;
+import org.gameobject.PointF;
 import org.mapsystem.MapSnippet;
 
 public class MainWindow extends JFrame {
@@ -63,15 +64,15 @@ public class MainWindow extends JFrame {
 	/**
 	 * SCALING NOT SUPPORTED AT THE MOMENT! 
 	 * returns an simple int conversion from the float point
-	 * @param point
+	 * @param pointF
 	 * @param width
 	 * @param height
 	 * @return
 	 */
-	public Point convertToScreen(float[] point, float width, float height) {
+	public Point convertToScreen(PointF pointF, float width, float height) {
 		// int x = (int) ((getWidth() / width) * point[0]);
 		// int y = (int) ((getHeight() / height) * point[1]);
-		return new Point((int) point[0], (int) point[1]);
+		return new Point((int) pointF.getX(), (int) pointF.getY());
 	}
 
 }
