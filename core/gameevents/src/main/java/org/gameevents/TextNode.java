@@ -24,7 +24,7 @@ public class TextNode extends GameObject {
 	}
 	
 	public int getChildrenAmount() {
-		return children.length;
+		return children != null?children.length:0;
 	}
 
 	public TextNode chosenAnswer(int choice) {

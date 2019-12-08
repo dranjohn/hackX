@@ -12,7 +12,7 @@ public class Dialogue {
 	public String getText() {
 		
 		// Exception for 1 text only
-		if (currentNode.getAnswers().length == 0) {
+		if (currentNode.getAnswers() == null || currentNode.getAnswers().length == 0) {
 			isFinished = true;
 		}
 		
@@ -35,7 +35,7 @@ public class Dialogue {
 		
 		TextNode nextNode = currentNode.chosenAnswer(choice);
 		
-		if (nextNode.getAnswers().length == 0 || nextNode.getChildrenAmount() == 0) {
+		if (nextNode == null || nextNode.getAnswers() == null || nextNode.getAnswers().length == 0 || nextNode.getChildrenAmount() == 0) {
 			isFinished = true;
 		}
 
