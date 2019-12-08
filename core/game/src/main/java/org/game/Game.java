@@ -44,12 +44,13 @@ public class Game {
 	 *         artifacts
 	 */
 	public Item[] getVisibleItems() {
+		System.out.println("test");
 		LinkedList<Item> items = new LinkedList<>();
 		MapSnippet[] allMapSnippets = map.getMapSnippets();
 		for (MapSnippet s : allMapSnippets) {
+			System.out.println(s);
 			for (Item item : s.getItems()) {
 				if (item instanceof Artifact) {
-					
 					if (s.getVisibility() && ((Artifact)(item)).isUnlocked(player.getArtifactInventory())) {
 						items.add(item);
 					}

@@ -35,47 +35,74 @@ public class App {
 	}
 
 	public static Game createDemoGame() {
+	
+		//Ab hier Map Snippet init
 		MapSnippet[] arr = new MapSnippet[4];
-		// add Map snippets here:
 
 		MapSnippet s1 = new MapSnippet("s1", "s1");
 		MapSnippet s2 = new MapSnippet("s2", "s1");
 		MapSnippet s3 = new MapSnippet("s3", "s1");
 		MapSnippet s4 = new MapSnippet("s4", "s1");
 		
-		MapItem mi1 = new MapItem("map_item1", "map_item", new PointF(700, 500), new Description("", "")) {
-			
-			@Override
-			public void unlockMapSnippets() {
-				s2.setVisible(true);
-			}
-		};
-		s1.addItem(mi1);
-		
-		Artifact a1 = new Artifact("a1", "artifact", new PointF(420,  630), new Description("", ""));
-		Artifact a2 = new Artifact("a2", "artifact", new PointF(300,  450), new Description("", ""));
-		a2.setRequiredArtifacts(a1);
-		s2.addItem(a1);
-		s2.addItem(a2);
-		
-		s1.setVisible(true);
-		s3.setVisible(true);
-		s4.setVisible(true);
-
 		arr[0] = s1;
 		arr[1] = s2;
 		arr[2] = s3;
 		arr[3] = s4;
 		
-
-		// MapSnippet[] arr = (MapSnippet[]) snippets.toArray();
-		// ===============
-
+		
+		//Ab hier Map item init
+		MapItem mi1 = new MapItem("map_item1", "map_item", new PointF(800, 100), new Description("", "")) {
+			public void unlockMapSnippets() {
+				s1.setVisible(true);
+			}
+		};
+		MapItem mi2 = new MapItem("map_item2", "map_item", new PointF(600, 500), new Description("", "")) {
+			public void unlockMapSnippets() {
+				s2.setVisible(true);
+			}
+		};
+		MapItem mi3 = new MapItem("map_item3", "map_item", new PointF(300, 600), new Description("", "")) {
+			public void unlockMapSnippets() {
+				s3.setVisible(true);
+			}
+		};
+		MapItem mi4 = new MapItem("map_item4", "map_item", new PointF(90, 180), new Description("", "")) {
+			public void unlockMapSnippets() {
+				s4.setVisible(true);
+			}
+		};
+		
+		s1.addItem(mi1);
+		s2.addItem(mi2);
+		s3.addItem(mi3);
+		s4.addItem(mi4);
+		
+		//Ab hier Artifact init
+		Artifact a1 = new Artifact("a1", "artifact", new PointF(420,  630), new Description("", ""));
+		Artifact a2 = new Artifact("a2", "artifact", new PointF(800,  530), new Description("", ""));
+		Artifact a3 = new Artifact("a3", "artifact", new PointF(180,  650), new Description("", ""));
+		Artifact a4 = new Artifact("a4", "artifact", new PointF(250,  850), new Description("", ""));
+		Artifact a5 = new Artifact("a5", "artifact", new PointF(700,  250), new Description("", ""));
+		Artifact a6 = new Artifact("a6", "artifact", new PointF(600, 250), new Description("", ""));
+		
+		s2.addItem(a1);
+		s2.addItem(a2);
+		
+		s2.addItem(a3);
+		s2.addItem(a4);
+		s2.addItem(a5);
+		s2.addItem(a6);
+		
+		
+		//Ab hier player init
 		Player p = new Player(20);
 		p.setLocation(new PointF(450, 640));
 		
+		//Ab hier Map init
 		Map map = new Map(arr, new PointF(size.x, size.y));
 		Game game = new Game(map, p);
+		
+		//Return
 		return game;
 	} 
 
@@ -85,14 +112,25 @@ public class App {
 		HashMap<String, String> idImageNameMap = new HashMap<>();
 
 		// put your resource mapping here:
+		idImageNameMap.put("background", "map_hintergrund.png");
+		
 		idImageNameMap.put("s1", "map_part1.png");
 		idImageNameMap.put("s2", "map_part2.png");
 		idImageNameMap.put("s3", "map_part3.png");
 		idImageNameMap.put("s4", "map_part4.png");
+		
 		idImageNameMap.put("a1", "artifact_1.png");
 		idImageNameMap.put("a2", "artifact_2.png");
-		idImageNameMap.put("background", "map_hintergrund.png");
+		idImageNameMap.put("a3", "artifact_3.png");
+		idImageNameMap.put("a4", "artifact_4.png");
+		idImageNameMap.put("a5", "artifact_5.png");
+		idImageNameMap.put("a6", "artifact_6.png");
+		
 		idImageNameMap.put("map_item1", "map_item_1.png");
+		idImageNameMap.put("map_item2", "map_item_1.png");
+		idImageNameMap.put("map_item3", "map_item_1.png");
+		idImageNameMap.put("map_item4", "map_item_1.png");
+		
 		idImageNameMap.put("player_image", "player_image.png");
 		// ...
 
