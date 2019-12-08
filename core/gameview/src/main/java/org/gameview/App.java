@@ -11,8 +11,10 @@ import org.game.Player;
 import org.gameevents.Dialogue;
 import org.gameevents.TextNode;
 import org.gameobject.PointF;
+import org.itemListeners.ItemCollectionListener;
 import org.itemsystem.Artifact;
 import org.itemsystem.Description;
+import org.itemsystem.Item;
 import org.itemsystem.MapItem;
 import org.mapsystem.Map;
 import org.mapsystem.MapSnippet; 
@@ -24,6 +26,7 @@ import org.mapsystem.MapSnippet;
 public class App {
 	
 	private static Point size = new Point(900, 700);
+	private static Dialogue dialogue;
 	
 	public static void main(String[] args) {
 		
@@ -35,7 +38,7 @@ public class App {
 		TextNode root = new TextNode("tn1", "", "Hallo Welt", new String[] {"Hallo zurück", "Ich bin müde"}, children);
 		TextNode child3 = new TextNode("tn3", "", "looooper", new String[] {"loop back to start"}, new TextNode[] {root});
 		c[0] = child3;
-		Dialogue dialogue = new Dialogue(root);
+		dialogue = new Dialogue(root);
 		
 		DialogWindow d = new DialogWindow();
 		d.setSize(300, 700);
@@ -115,6 +118,16 @@ public class App {
 		a5.setRequiredArtifacts(a2);
 		
 		a4.setRequiredArtifacts(a6);
+		
+		a6.addItemCollectionListener(new ItemCollectionListener() {
+			
+			@Override
+			public void itemCollected(Item source) {
+				DialogWindow d = new DialogWindow();
+				d.setDialogue(dialogue);
+				d.setVisible(true);
+			}
+		});
 		
 		//Ab hier player init
 		Player p = new Player(20);

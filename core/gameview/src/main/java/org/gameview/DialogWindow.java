@@ -23,7 +23,9 @@ public class DialogWindow extends JFrame {
 	private JButton[] answers = new JButton[] {};
 	
 	public DialogWindow() {
+		this.setSize(50, 200);
 		this.add(inputLabel);
+	
 		inputLabel.setVisible(true);
 	}
 	

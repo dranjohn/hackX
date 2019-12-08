@@ -1,14 +1,19 @@
 package org.gameview;
 
 import java.awt.BorderLayout;
+import java.awt.Component;
+import java.awt.FlowLayout;
+import java.awt.LayoutManager;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
+import javax.swing.LayoutStyle;
 
 import org.game.Player;
 import org.itemsystem.Artifact;
@@ -18,21 +23,34 @@ public class Inventory extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private GameResources resources;
 	private Player player;
-	private JTextField descriptionView;
+	private JTextField descriptionView = new JTextField();
+	private JButton[] inventoryView = new JButton[] {};
+	private LayoutManager layout;
 	
 	
 	public Inventory(GameResources resources, Player player) {
 		this.resources = resources;
 		this.player = player;
+		this.descriptionView.setEditable(false);
+		this.add(descriptionView);
+		this.descriptionView.setText("Inventory information");
 		this.updateInventory();
+		this.setSize(150, 700);
 	}
 	
 	public void updateInventory() {
-		this.removeAll();
+		if (player.getArtifactInventory().length == 0) {
+			this.setVisible(false);
+		}
+		for (Component b : this.inventoryView) {
+			this.remove(b);
+		}
+		this.inventoryView = new JButton[] {};
 		Artifact[] artifacts = player.getArtifactInventory();
-		this.setLayout(new BorderLayout(artifacts.length, 1));
+		this.layout = new FlowLayout();
+		this.setLayout(layout);
 		
-		JButton[] inventoryView = new JButton[artifacts.length];
+		inventoryView = new JButton[artifacts.length];
 		for (int i = 0; i <  inventoryView.length; i++) {
 			ImageIcon artifactIcon = new ImageIcon(resources.getImageById(artifacts[i].getId()));
 			inventoryView[i] = new JButton();

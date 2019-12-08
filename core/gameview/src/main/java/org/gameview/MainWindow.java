@@ -38,6 +38,7 @@ public class MainWindow extends JFrame implements KeyListener {
 		this.resources = resources;
 		this.game = game;
 		this.inventory = new Inventory(resources, game.getPlayer());
+		inventory.setLocation(getX() + 900 + 20, getY());
 		this.addKeyListener(this);
 		
 	}
