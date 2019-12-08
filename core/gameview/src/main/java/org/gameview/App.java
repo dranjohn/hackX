@@ -114,7 +114,7 @@ public class App {
 		a1.setRequiredArtifacts(a2);
 		a5.setRequiredArtifacts(a2);
 		
-		a4.setRequiredArtifacts(a3);
+		a4.setRequiredArtifacts(a6);
 		
 		//Ab hier player init
 		Player p = new Player(20);
