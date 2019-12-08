@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.LinkedList;
 
 import org.gameobject.PointF;
+import org.itemsystem.Artifact;
 import org.itemsystem.Item;
 import org.itemsystem.MapItem;
 import org.mapsystem.Map;
@@ -44,11 +45,29 @@ public class Game {
 		MapSnippet[] allMapSnippets = map.getMapSnippets();
 		for (MapSnippet s : allMapSnippets) {
 			if (s.getVisibility()) {
-				items.addAll(s.getItems());
+				for (Item item : s.getItems()) {
+					if (item instanceof Artifact) {
+						if (((Artifact)(item)).isUnlocked(player.getArtifactInventory())) {
+							items.add(item);
+						}
+					} else {
+						items.add(item);
+					}
+					
+				}
 			}
 		}
-		items.addAll(Arrays.asList(player.getMapItemInventory()));
-		return (Item[]) items.toArray();
+		
+		MapItem[] mapItems = player.getMapItemInventory();
+		for (MapItem mi : mapItems) {
+			items.add(mi);
+		}
+		
+		Item[] arr = new Item[items.size()];
+		for (int i = 0; i < arr.length; i++) {
+			arr[i] = items.get(i);
+		}
+		return arr;
 	}
 
 	public Item[] getItemsInRangeOfPlayer() {

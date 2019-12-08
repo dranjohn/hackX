@@ -72,6 +72,10 @@ public class Player {
 	}
 	
 	public MapItem[] getMapItemInventory() {
-		return (MapItem[]) mapItemInventory.toArray();
+		MapItem[] arr = new MapItem[mapItemInventory.size()];
+		for (int i = 0; i < arr.length; i++) {
+			arr[i] = mapItemInventory.get(i);
+		}
+		return arr;
 	}
 }

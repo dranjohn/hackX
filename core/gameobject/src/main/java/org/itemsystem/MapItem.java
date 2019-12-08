@@ -14,6 +14,7 @@ public abstract class MapItem extends Item {
 	public MapItem(String id, String name, PointF location, Description description) {
 		super(id, name, location, description);
 	}
+	
 
 	public abstract void unlockMapSnippets();
 }

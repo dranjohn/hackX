@@ -44,7 +44,8 @@ public abstract class Item extends GameObject {
 	public PointF getLocation() {
 		return location;
 	}
-
+	
+	
 	public Description getDescription() {
 		return description;
 	}

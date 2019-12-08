@@ -9,7 +9,7 @@ import org.itemsystem.Item;
 public class MapSnippet extends GameObject {
 	private boolean isVisible;
 	private String name;
-	private ArrayList<Item> items;
+	private ArrayList<Item> items = new ArrayList<>();
 	private PointF location;
 
 	/**

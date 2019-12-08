@@ -11,6 +11,7 @@ import org.game.Player;
 import org.gameobject.PointF;
 import org.itemsystem.Artifact;
 import org.itemsystem.Description;
+import org.itemsystem.MapItem;
 import org.mapsystem.Map;
 import org.mapsystem.MapSnippet; 
  
@@ -42,11 +43,17 @@ public class App {
 		MapSnippet s3 = new MapSnippet("s3", "s1");
 		MapSnippet s4 = new MapSnippet("s4", "s1");
 		
-		Artifact a1 = new Artifact("a1", "artifact", new PointF(100, 100), new Description("", ""));
+		MapItem a1 = new MapItem("map_item", "map_item", new PointF(700, 400), new Description("", "")) {
+			
+			@Override
+			public void unlockMapSnippets() {
+				s2.setVisible(true);
+			}
+		};
+		s1.addItem(a1);
 		
 		
 		s1.setVisible(true);
-		s2.setVisible(true);
 		s3.setVisible(true);
 		s4.setVisible(true);
 
@@ -78,6 +85,7 @@ public class App {
 		idImageNameMap.put("s3", "map_part3.png");
 		idImageNameMap.put("s4", "map_part4.png");
 		idImageNameMap.put("background", "map_hintergrund.png");
+		idImageNameMap.put("map_item", "map_item.png");
 		idImageNameMap.put("player_image", "player_image.png");
 		// ...
 

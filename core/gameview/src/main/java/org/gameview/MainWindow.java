@@ -13,6 +13,9 @@ import javax.swing.JFrame;
 import org.game.Game;
 import org.game.Player;
 import org.gameobject.PointF;
+import org.itemsystem.Artifact;
+import org.itemsystem.Item;
+import org.itemsystem.MapItem;
 import org.mapsystem.MapSnippet;
 
 public class MainWindow extends JFrame implements KeyListener {
@@ -61,6 +64,14 @@ public class MainWindow extends JFrame implements KeyListener {
 			Point p = convertToScreen(new PointF(0, 0), getWidth(), getHeight());
 			TexturePanel panel = new TexturePanel(i, p.x, p.y);
 			textureLayers.add(panel);
+			
+			for (Item item : game.getVisibleItems()) {
+				int itemX = (int) item.getLocation().getX();
+				int itemY = (int) item.getLocation().getY();
+				BufferedImage itemImage = resources.getImageById(item.getId());
+				TexturePanel itemPanel = new TexturePanel(itemImage, itemX, itemY);
+				textureLayers.add(itemPanel);
+			}
 		}
 		
 		BufferedImage playerTexture = resources.getImageById("player_image");
