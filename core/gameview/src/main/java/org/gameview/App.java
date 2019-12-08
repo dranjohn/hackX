@@ -8,6 +8,8 @@ import javax.swing.JFrame;
 
 import org.game.Game;
 import org.game.Player;
+import org.gameevents.Dialogue;
+import org.gameevents.TextNode;
 import org.gameobject.PointF;
 import org.itemsystem.Artifact;
 import org.itemsystem.Description;
@@ -24,13 +26,30 @@ public class App {
 	private static Point size = new Point(900, 700);
 	
 	public static void main(String[] args) {
- 
+		
+		TextNode rootChild1 = new TextNode("tn2", "", "Hallo Universum", null, null);
+		TextNode[] c = new TextNode[] {null};
+		TextNode rootChild2 = new TextNode("tn3", "", "Test", new String[] {"end dialog"}, c);	
+
+		TextNode[] children = new TextNode[] {rootChild1, rootChild2};
+		TextNode root = new TextNode("tn1", "", "Hallo Welt", new String[] {"Hallo zurück", "Ich bin müde"}, children);
+		TextNode child3 = new TextNode("tn3", "", "looooper", new String[] {"loop back to start"}, new TextNode[] {root});
+		c[0] = child3;
+		Dialogue dialogue = new Dialogue(root);
+		
+		DialogWindow d = new DialogWindow();
+		d.setSize(300, 700);
+		d.setDialogue(dialogue);
+		d.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		d.setVisible(true);
+		
+		
 		// Creating main frame
 		MainWindow frame = new MainWindow(createTextures(), createDemoGame());
 		frame.setSize(size.x, size.y);
-		frame.setVisible(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setVisible(true);
+		// frame.setVisible(true);
+		
 
 	}
 
