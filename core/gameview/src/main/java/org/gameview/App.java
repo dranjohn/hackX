@@ -95,12 +95,12 @@ public class App {
 		s4.addItem(mi4);
 		
 		//Ab hier Artifact init
-		Artifact a1 = new Artifact("a1", "artifact", new PointF(420,  630), new Description("", ""));
-		Artifact a2 = new Artifact("a2", "artifact", new PointF(800,  530), new Description("", ""));
-		Artifact a3 = new Artifact("a3", "artifact", new PointF(155,  455), new Description("", ""));
-		Artifact a4 = new Artifact("a4", "artifact", new PointF(180,  640), new Description("", ""));
-		Artifact a5 = new Artifact("a5", "artifact", new PointF(835,  635), new Description("", ""));
-		Artifact a6 = new Artifact("a6", "artifact", new PointF(50,  50), new Description("", ""));
+		Artifact a1 = new Artifact("a1", "artifact", new PointF(420,  630), new Description("2005, August", "Das ist ein Stein!"));
+		Artifact a2 = new Artifact("a2", "artifact", new PointF(800,  530), new Description("1900", "Porzelanente?"));
+		Artifact a3 = new Artifact("a3", "artifact", new PointF(155,  455), new Description("100 v.Chr", "Das ist eine alte Vase"));
+		Artifact a4 = new Artifact("a4", "artifact", new PointF(180,  640), new Description("1500-1700", "Ein altes Amulett."));
+		Artifact a5 = new Artifact("a5", "artifact", new PointF(835,  635), new Description("420", "Antike schmuckschatulle."));
+		Artifact a6 = new Artifact("a6", "artifact", new PointF(50,  50), new Description("1954", "Ene schwarz Kugel."));
 				
 		s2.addItem(a1);
 		s2.addItem(a2);
