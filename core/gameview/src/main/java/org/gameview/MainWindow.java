@@ -45,7 +45,7 @@ public class MainWindow extends JFrame {
 		for (MapSnippet s : game.getVisibleMapSnippets()) {
 			BufferedImage i = resources.getImageById(s.getId());
 
-			Point p = convertToScreen(s.getLocation(), getWidth(), getHeight());
+			Point p = convertToScreen(new PointF(0, 0), getWidth(), getHeight());
 			TexturePanel panel = new TexturePanel(i, p.x, p.y);
 			textureLayers.add(panel);
 		}

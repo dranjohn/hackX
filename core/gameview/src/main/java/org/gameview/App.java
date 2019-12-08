@@ -32,28 +32,34 @@ public class App {
 	}
 
 	public static Game createDemoGame() {
-		MapSnippet[] arr = new MapSnippet[3];
+		MapSnippet[] arr = new MapSnippet[4];
 		// add Map snippets here:
 
-		MapSnippet s1 = new MapSnippet("s1", "s1", new PointF(0, 510 ));
-		MapSnippet s2 = new MapSnippet("s2", "s1", new PointF(0, 0 ));
-		MapSnippet s3 = new MapSnippet("s3", "s1", new PointF(473, 0 ));
+		MapSnippet s1 = new MapSnippet("s1", "s1");
+		MapSnippet s2 = new MapSnippet("s2", "s1");
+		MapSnippet s3 = new MapSnippet("s3", "s1");
+		MapSnippet s4 = new MapSnippet("s4", "s1");
 		s1.setVisible(true);
+		s2.setVisible(true);
+		s3.setVisible(true);
+		s4.setVisible(true);
 
 		arr[0] = s1;
 		arr[1] = s2;
 		arr[2] = s3;
+		arr[3] = s4;
+		
 
 		// MapSnippet[] arr = (MapSnippet[]) snippets.toArray();
 		// ===============
 
 		Player p = new Player(3);
-		p.setLocation(new PointF(200, 300));
+		p.setLocation(new PointF(450, 640));
 		
 		Map map = new Map(arr, new PointF(size.x, size.y));
 		Game game = new Game(map, p);
 		return game;
-	}
+	} 
 
 	public static GameResources createTextures() {
 
@@ -64,6 +70,7 @@ public class App {
 		idImageNameMap.put("s1", "map_part1.png");
 		idImageNameMap.put("s2", "map_part2.png");
 		idImageNameMap.put("s3", "map_part3.png");
+		idImageNameMap.put("s4", "map_part4.png");
 		idImageNameMap.put("background", "map_hintergrund.png");
 		idImageNameMap.put("player_image", "player_image.png");
 		// ...
