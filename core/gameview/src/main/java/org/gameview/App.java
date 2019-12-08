@@ -9,6 +9,8 @@ import javax.swing.JFrame;
 import org.game.Game;
 import org.game.Player;
 import org.gameobject.PointF;
+import org.itemsystem.Artifact;
+import org.itemsystem.Description;
 import org.mapsystem.Map;
 import org.mapsystem.MapSnippet; 
  
@@ -39,6 +41,10 @@ public class App {
 		MapSnippet s2 = new MapSnippet("s2", "s1");
 		MapSnippet s3 = new MapSnippet("s3", "s1");
 		MapSnippet s4 = new MapSnippet("s4", "s1");
+		
+		Artifact a1 = new Artifact("a1", "artifact", new PointF(100, 100), new Description("", ""));
+		
+		
 		s1.setVisible(true);
 		s2.setVisible(true);
 		s3.setVisible(true);

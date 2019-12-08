@@ -2,6 +2,8 @@ package org.gameview;
 
 import java.awt.Graphics;
 import java.awt.Point;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,10 +11,11 @@ import java.util.List;
 import javax.swing.JFrame;
 
 import org.game.Game;
+import org.game.Player;
 import org.gameobject.PointF;
 import org.mapsystem.MapSnippet;
 
-public class MainWindow extends JFrame {
+public class MainWindow extends JFrame implements KeyListener {
 
 	/**
 	 * 
@@ -22,10 +25,13 @@ public class MainWindow extends JFrame {
 	private GameResources resources;
 	private Game game;
 	private List<TexturePanel> textureLayers = new ArrayList<>();
+	private PointF moveDelta = new PointF(5f, 5f);
 
 	public MainWindow(GameResources resources, Game game) {
 		this.resources = resources;
 		this.game = game;
+		this.addKeyListener(this);
+		
 	}
 
 	@Override
@@ -33,6 +39,13 @@ public class MainWindow extends JFrame {
 		super.paint(g);
 		renderGame(g);
 		
+		
+		
+	}
+	
+	@Override
+	public void update(Graphics g) {
+		paint(g);
 	}
 	
 	
@@ -56,9 +69,10 @@ public class MainWindow extends JFrame {
 		textureLayers.add(playerPanel);
 		
 		for (TexturePanel texture : textureLayers) {
-			g.drawImage(texture.getImage(), texture.getX(), texture.getY(), null);
+			g.drawImage(texture.getImage(), texture.getX(), texture.getY(), this);
 		}
 	}
+	
 	
 
 	/**
@@ -73,6 +87,50 @@ public class MainWindow extends JFrame {
 		// int x = (int) ((getWidth() / width) * point[0]);
 		// int y = (int) ((getHeight() / height) * point[1]);
 		return new Point((int) pointF.getX(), (int) pointF.getY());
+	}
+
+	@Override
+	public void keyPressed(KeyEvent e) {
+		if (e.getKeyChar() == 'w') {
+			Player player = game.getPlayer();
+			PointF pos = player.getLocation();
+			pos.setY(pos.getY() - moveDelta.getY());
+			
+		}
+		
+		if (e.getKeyChar() == 'a') {
+			Player player = game.getPlayer();
+			PointF pos = player.getLocation();
+			pos.setX(pos.getX() - moveDelta.getX());
+		}
+		
+		if (e.getKeyChar() == 's') {
+			Player player = game.getPlayer();
+			PointF pos = player.getLocation();
+			pos.setY(pos.getY() + moveDelta.getY());
+			
+		}
+		
+		if (e.getKeyChar() == 'd') {
+			Player player = game.getPlayer();
+			PointF pos = player.getLocation();
+			pos.setX(pos.getX() + moveDelta.getX());
+			
+		}
+		
+		repaint();
+	}
+
+	@Override
+	public void keyReleased(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void keyTyped(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

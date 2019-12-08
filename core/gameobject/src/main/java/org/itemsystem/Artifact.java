@@ -7,7 +7,7 @@ import java.util.Set;
 
 import org.gameobject.PointF;
 
-public abstract class Artifact extends Item {
+public class Artifact extends Item {
 
 	private Set<Artifact> requiredArtifacts = new HashSet<>();
 
