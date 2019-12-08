@@ -24,6 +24,10 @@ public class MapSnippet extends GameObject {
 		this.name = name;
 		this.isVisible = false;
 	}
+	
+	public MapSnippet(String id, String name) {
+		this(id, name, new PointF(0, 0));
+	}
 
 	public PointF getLocation() {
 		return location;
