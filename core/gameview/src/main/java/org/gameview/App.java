@@ -43,15 +43,20 @@ public class App {
 		MapSnippet s3 = new MapSnippet("s3", "s1");
 		MapSnippet s4 = new MapSnippet("s4", "s1");
 		
-		MapItem a1 = new MapItem("map_item", "map_item", new PointF(700, 400), new Description("", "")) {
+		MapItem mi1 = new MapItem("map_item1", "map_item", new PointF(700, 500), new Description("", "")) {
 			
 			@Override
 			public void unlockMapSnippets() {
 				s2.setVisible(true);
 			}
 		};
-		s1.addItem(a1);
+		s1.addItem(mi1);
 		
+		Artifact a1 = new Artifact("a1", "artifact", new PointF(420,  630), new Description("", ""));
+		Artifact a2 = new Artifact("a2", "artifact", new PointF(300,  450), new Description("", ""));
+		a2.setRequiredArtifacts(a1);
+		s2.addItem(a1);
+		s2.addItem(a2);
 		
 		s1.setVisible(true);
 		s3.setVisible(true);
@@ -66,7 +71,7 @@ public class App {
 		// MapSnippet[] arr = (MapSnippet[]) snippets.toArray();
 		// ===============
 
-		Player p = new Player(3);
+		Player p = new Player(20);
 		p.setLocation(new PointF(450, 640));
 		
 		Map map = new Map(arr, new PointF(size.x, size.y));
@@ -84,8 +89,10 @@ public class App {
 		idImageNameMap.put("s2", "map_part2.png");
 		idImageNameMap.put("s3", "map_part3.png");
 		idImageNameMap.put("s4", "map_part4.png");
+		idImageNameMap.put("a1", "artifact_1.png");
+		idImageNameMap.put("a2", "artifact_2.png");
 		idImageNameMap.put("background", "map_hintergrund.png");
-		idImageNameMap.put("map_item", "map_item.png");
+		idImageNameMap.put("map_item1", "map_item_1.png");
 		idImageNameMap.put("player_image", "player_image.png");
 		// ...
 

@@ -45,11 +45,11 @@ public class Player {
 		for (MapSnippet snippet : map.getMapSnippets()) {
 			if (snippet.getItems().contains(item)) {
 				snippet.removeItem(item);
-
 				if (item instanceof Artifact) {
 					artifactInventory.add((Artifact) item);
 				}else if (item instanceof MapItem) {
 					mapItemInventory.add((MapItem) item);
+					((MapItem) item).unlockMapSnippets();
 				}
 				item.triggerAllCollectionListeners();
 				break;
@@ -68,7 +68,11 @@ public class Player {
 	}
 
 	public Artifact[] getArtifactInventory() {
-		return (Artifact[]) artifactInventory.toArray();
+		Artifact[] arr = new Artifact[artifactInventory.size()];
+		for (int i = 0; i < arr.length; i++) {
+			arr[i] = artifactInventory.get(i);
+		}
+		return arr;
 	}
 	
 	public MapItem[] getMapItemInventory() {

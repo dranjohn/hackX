@@ -6,6 +6,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.swing.JFrame;
@@ -41,9 +42,7 @@ public class MainWindow extends JFrame implements KeyListener {
 	public void paint(Graphics g) {
 		super.paint(g);
 		renderGame(g);
-		
-		
-		
+
 	}
 	
 	@Override
@@ -102,34 +101,46 @@ public class MainWindow extends JFrame implements KeyListener {
 
 	@Override
 	public void keyPressed(KeyEvent e) {
+		
 		if (e.getKeyChar() == 'w') {
 			Player player = game.getPlayer();
 			PointF pos = player.getLocation();
 			pos.setY(pos.getY() - moveDelta.getY());
-			
+			repaint();
 		}
 		
 		if (e.getKeyChar() == 'a') {
 			Player player = game.getPlayer();
 			PointF pos = player.getLocation();
 			pos.setX(pos.getX() - moveDelta.getX());
+			repaint();
 		}
 		
 		if (e.getKeyChar() == 's') {
 			Player player = game.getPlayer();
 			PointF pos = player.getLocation();
 			pos.setY(pos.getY() + moveDelta.getY());
-			
+			repaint();
 		}
 		
 		if (e.getKeyChar() == 'd') {
 			Player player = game.getPlayer();
 			PointF pos = player.getLocation();
 			pos.setX(pos.getX() + moveDelta.getX());
-			
+			repaint();
 		}
 		
-		repaint();
+		if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+			Item[] collectables = game.getItemsInRangeOfPlayer();
+			
+			for (Item i : collectables) {
+				game.getPlayer().collect(i, game.getMap());
+			}
+
+			repaint();
+		}
+		
+		
 	}
 
 	@Override

@@ -34,6 +34,10 @@ public class Game {
 		}
 		return arr;
 	}
+	
+	public Map getMap() {
+		return map;
+	}
 
 	/**
 	 * 
@@ -44,18 +48,17 @@ public class Game {
 		LinkedList<Item> items = new LinkedList<>();
 		MapSnippet[] allMapSnippets = map.getMapSnippets();
 		for (MapSnippet s : allMapSnippets) {
-			if (s.getVisibility()) {
-				for (Item item : s.getItems()) {
-					if (item instanceof Artifact) {
-						if (((Artifact)(item)).isUnlocked(player.getArtifactInventory())) {
-							items.add(item);
-						}
-					} else {
+			for (Item item : s.getItems()) {
+				if (item instanceof Artifact) {
+					
+					if (s.getVisibility() && ((Artifact)(item)).isUnlocked(player.getArtifactInventory())) {
 						items.add(item);
 					}
-					
+				} else {
+					items.add(item);
 				}
 			}
+			
 		}
 		
 		MapItem[] mapItems = player.getMapItemInventory();
@@ -77,13 +80,18 @@ public class Game {
 		for (MapSnippet s : allMapSnippets) {
 			for (Item i : s.getItems()) {
 				PointF locItem = i.getLocation();
-				if (Math.hypot(locItem.getX() - locPlayer.getY(), locItem.getX()- locPlayer.getY()) < player.getRange()) {
+				float distance = (float) Math.hypot(locItem.getX() - locPlayer.getX(), locItem.getY()- locPlayer.getY());
+				if ( distance < player.getRange()) {
 					itemsInRange.add(i);
 				}
 			}
 		}
 
-		return (Item[]) itemsInRange.toArray();
+		Item[] arr = new Item[itemsInRange.size()];
+		for (int i = 0; i < arr.length; i++) {
+			arr[i] = itemsInRange.get(i);
+		}
+		return arr;
 	}
 
 	public Player getPlayer() {
