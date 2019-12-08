@@ -1,5 +1,6 @@
 package org.gameview;
 
+import java.awt.Color;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -24,10 +25,11 @@ public class GameResources {
 	}
 
 	public BufferedImage getImageById(String id) {
-		System.out.println(imageResources);
-		System.out.println(idtoImageNameMap);
-		System.out.println("==");
-		return imageResources.get(idtoImageNameMap.get(id));
+		BufferedImage i = imageResources.get(idtoImageNameMap.get(id));
+		if (i == null) {
+			i = new BufferedImage(50, 50, BufferedImage.TYPE_INT_RGB); // default image
+		}
+		return i;
 	}
 
 	public void loadImages() {

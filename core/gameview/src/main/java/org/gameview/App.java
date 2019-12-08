@@ -1,28 +1,31 @@
 package org.gameview;
 
 import java.util.HashMap;
+ 
 
 import javax.swing.JFrame;
 
 import org.game.Game;
 import org.game.Player;
 import org.mapsystem.Map;
-import org.mapsystem.MapSnippet;
-
+import org.mapsystem.MapSnippet; 
+ 
 /**
- * Hello world!
+ * Hello world! 
  *
  */
 public class App {
+	
+	private static int xSize = 900;
+	private static int ySize = 700;
+	
 	public static void main(String[] args) {
-
+ 
 		// Creating main frame
 		MainWindow frame = new MainWindow(createTextures(), createDemoGame());
-		frame.setSize(900, 700);
-
+		frame.setSize(xSize, ySize);
 		frame.setVisible(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
 		frame.setVisible(true);
 
 	}
@@ -34,9 +37,7 @@ public class App {
 		MapSnippet s1 = new MapSnippet("s1", "s1", new float[] { 0, 510 });
 		MapSnippet s2 = new MapSnippet("s2", "s1", new float[] { 0, 0 });
 		MapSnippet s3 = new MapSnippet("s3", "s1", new float[] { 473, 0 });
-//		snippets.add(s1);
-//		snippets.add(s2);
-//		snippets.add(s3);
+		s1.setVisible(true);
 
 		arr[0] = s1;
 		arr[1] = s2;
@@ -46,7 +47,8 @@ public class App {
 		// ===============
 
 		Player p = new Player(3);
-		Map map = new Map(arr, 900, 700);
+		
+		Map map = new Map(arr, xSize, ySize);
 		Game game = new Game(map, p);
 		return game;
 	}
@@ -61,6 +63,7 @@ public class App {
 		idImageNameMap.put("s2", "map_part2.png");
 		idImageNameMap.put("s3", "map_part3.png");
 		idImageNameMap.put("background", "map_hintergrund.png");
+		idImageNameMap.put("player_image", "player_image.png");
 		// ...
 
 		// ============================

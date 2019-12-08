@@ -27,7 +27,7 @@ public class Player {
 		return stats;
 	}
 
-	public float[] getLocation(int... is) {
+	public float[] getLocation() {
 		return new float[] { xPos, yPos };
 	}
 
